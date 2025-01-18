@@ -23,3 +23,7 @@ void Board::printBoard() {
     }
 
 }
+
+vector<vector<int>> Board::getBoardVector() {
+    return boardVector;
+}

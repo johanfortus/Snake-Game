@@ -11,4 +11,5 @@ class Board {
 public:
     Board(int columnAmount, int rowAmount);
     void printBoard();
+    vector<vector<int>> getBoardVector();
 };
