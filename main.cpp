@@ -8,14 +8,19 @@
 using namespace std;
 
 int main() {
-    cout << "test" << endl;
-    Board GameBoard(17, 17);
+
+    int columns = 17;
+    int rows = 17;
+
+    int width = columns * 32;
+    int height = rows * 32;
+
+    Board GameBoard(columns, rows);
 
     GameBoard.printBoard();
 
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::RenderWindow window(sf::VideoMode(width, height), "Snake Game");
+
 
     while (window.isOpen()) {
         sf::Event event;
@@ -25,8 +30,7 @@ int main() {
                 window.close();
         }
 
-        window.clear();
-        window.draw(shape);
+        window.clear(sf::Color::White);
         window.display();
     }
 
