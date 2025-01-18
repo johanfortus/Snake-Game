@@ -3,12 +3,26 @@
 #include <string>
 #include <unordered_map>
 #include <cmath>
+#include <chrono>
+#include <thread>
 #include "Board.h"
 #include "TextureManager.h"
 #include <SFML/Graphics.hpp>
 using namespace std;
 
+template<typename T>
+auto setInterval(T function, int interval) {
+    while(true) {
+        function();
+        this_thread::sleep_for(chrono::milliseconds(interval));
+    }
+}
+
 int main() {
+    int counter = 0;
+    setInterval([&counter](){
+        cout << "hello" << counter++ << endl;
+    }, 1000);
 
     int columns = 17;
     int rows = 17;
