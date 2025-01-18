@@ -17,7 +17,9 @@ include_directories("/opt/homebrew/opt/sfml/include")
 
 add_executable(SnakeGame main.cpp
         Board.h
-        Board.cpp)
+        Board.cpp
+        TextureManager.cpp
+        TextureManager.h)
 
 # Link SFML libraries
 target_link_libraries(SnakeGame sfml-system sfml-window sfml-graphics)
