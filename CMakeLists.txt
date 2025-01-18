@@ -15,7 +15,9 @@ find_package(SFML 2.5 COMPONENTS system window graphics REQUIRED)
 # Include directories for SFML
 include_directories("/opt/homebrew/opt/sfml/include")
 
-add_executable(SnakeGame main.cpp)
+add_executable(SnakeGame main.cpp
+        Board.h
+        Board.cpp)
 
 # Link SFML libraries
 target_link_libraries(SnakeGame sfml-system sfml-window sfml-graphics)
