@@ -10,19 +10,16 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 
-template<typename T>
-auto setInterval(T function, int interval) {
-    while(true) {
-        function();
-        this_thread::sleep_for(chrono::milliseconds(interval));
-    }
-}
+//template<typename T>
+//auto setInterval(T function, int interval) {
+//    while(true) {
+//        function();
+//        this_thread::sleep_for(chrono::milliseconds(interval));
+//    }
+//}
 
 int main() {
-    int counter = 0;
-    setInterval([&counter](){
-        cout << "hello" << counter++ << endl;
-    }, 1000);
+
 
     int columns = 17;
     int rows = 17;
@@ -76,16 +73,16 @@ int main() {
         }
 
 
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
 
         for(int i = 0; i < boardVector.size(); i++) {
             for(int j = 0; j < boardVector[i].size(); j++) {
-                if(boardVector[i][j] == 0) {
-                    sf::Sprite grassTileSprite(TextureManager::GetTexture("grass_tile"));
-                    grassTileSprite.setPosition(sf::Vector2f(j * 32, i * 32));
-                    window.draw(grassTileSprite);
-                }
-                else if(boardVector[i][j] == 1) {
+//                if(boardVector[i][j] == 0) {
+//                    sf::Sprite grassTileSprite(TextureManager::GetTexture("grass_tile"));
+//                    grassTileSprite.setPosition(sf::Vector2f(j * 32, i * 32));
+//                    window.draw(grassTileSprite);
+//                }
+                if(boardVector[i][j] == 1) {
                     sf::Sprite snakeTileSprite(TextureManager::GetTexture("snake_tile"));
                     snakeTileSprite.setPosition(sf::Vector2f(j * 32, i * 32));
                     window.draw(snakeTileSprite);
