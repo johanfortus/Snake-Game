@@ -30,6 +30,8 @@ int main() {
     int xPos = 8;
     int yPos = 8;
 
+    string direction = "Right";
+
     Board GameBoard(columns, rows);
     vector<vector<int>> boardVector = GameBoard.getBoardVector();
     boardVector[xPos][yPos] = 1;
@@ -38,7 +40,7 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(width, height), "Snake Game");
 
     sf::Clock clock;
-    sf::Time interval = sf::seconds(1.0f);
+    sf::Time interval = sf::seconds(0.1f);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -49,31 +51,44 @@ int main() {
 
             if(event.type == sf::Event::KeyPressed) {
                 if(event.key.code == sf::Keyboard::Left) {
-                    boardVector[xPos][yPos] = 0;
-                    yPos-=1;
-                    boardVector[xPos][yPos] = 1;
+                    direction = "Left";
                 }
                 if(event.key.code == sf::Keyboard::Right) {
-                    boardVector[xPos][yPos] = 0;
-                    yPos+=1;
-                    boardVector[xPos][yPos] = 1;
+                    direction = "Right";
                 }
                 if(event.key.code == sf::Keyboard::Up) {
-                    boardVector[xPos][yPos] = 0;
-                    xPos-=1;
-                    boardVector[xPos][yPos] = 1;
+                    direction = "Up";
                 }
                 if(event.key.code == sf::Keyboard::Down) {
-                    boardVector[xPos][yPos] = 0;
-                    xPos+=1;
-                    boardVector[xPos][yPos] = 1;
+                    direction = "Down";
                 }
             }
 
         }
 
         if(clock.getElapsedTime() >= interval) {
-            cout << "test" << endl;
+            if(direction == "Left") {
+                boardVector[xPos][yPos] = 0;
+                yPos-=1;
+                boardVector[xPos][yPos] = 1;
+            }
+            else if(direction == "Right") {
+                boardVector[xPos][yPos] = 0;
+                yPos+=1;
+                boardVector[xPos][yPos] = 1;
+            }
+            else if(direction == "Up") {
+                boardVector[xPos][yPos] = 0;
+                xPos-=1;
+                boardVector[xPos][yPos] = 1;
+            }
+            else if(direction == "Down") {
+                boardVector[xPos][yPos] = 0;
+                xPos+=1;
+                boardVector[xPos][yPos] = 1;
+            }
+
+
             clock.restart();
         }
 
