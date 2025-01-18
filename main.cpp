@@ -37,8 +37,8 @@ int main() {
 
     sf::RenderWindow window(sf::VideoMode(width, height), "Snake Game");
 
-//    sf::Sprite grassTileSprite(TextureManager::GetTexture("grass_tile"));
-//    grassTileSprite.setPosition(sf::Vector2f(0, 0));
+    sf::Clock clock;
+    sf::Time interval = sf::seconds(1.0f);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -72,8 +72,15 @@ int main() {
 
         }
 
+        if(clock.getElapsedTime() >= interval) {
+            cout << "test" << endl;
+            clock.restart();
+        }
+
 
         window.clear(sf::Color::Black);
+
+
 
         for(int i = 0; i < boardVector.size(); i++) {
             for(int j = 0; j < boardVector[i].size(); j++) {
