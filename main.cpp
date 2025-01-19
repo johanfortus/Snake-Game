@@ -71,21 +71,25 @@ int main() {
                 boardVector[xPos][yPos] = 0;
                 yPos-=1;
                 boardVector[xPos][yPos] = 1;
+                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
             }
             else if(direction == "Right") {
                 boardVector[xPos][yPos] = 0;
                 yPos+=1;
                 boardVector[xPos][yPos] = 1;
+                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
             }
             else if(direction == "Up") {
                 boardVector[xPos][yPos] = 0;
                 xPos-=1;
                 boardVector[xPos][yPos] = 1;
+                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
             }
             else if(direction == "Down") {
                 boardVector[xPos][yPos] = 0;
                 xPos+=1;
                 boardVector[xPos][yPos] = 1;
+                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
             }
 
 
@@ -99,18 +103,11 @@ int main() {
 
         for(int i = 0; i < boardVector.size(); i++) {
             for(int j = 0; j < boardVector[i].size(); j++) {
-//                if(boardVector[i][j] == 0) {
-//                    sf::Sprite grassTileSprite(TextureManager::GetTexture("grass_tile"));
-//                    grassTileSprite.setPosition(sf::Vector2f(j * 32, i * 32));
-//                    window.draw(grassTileSprite);
-//                }
                 if(boardVector[i][j] == 1) {
                     sf::Sprite snakeTileSprite(TextureManager::GetTexture("snake_tile"));
                     snakeTileSprite.setPosition(sf::Vector2f(j * 32, i * 32));
                     window.draw(snakeTileSprite);
                 }
-
-
             }
         }
 
