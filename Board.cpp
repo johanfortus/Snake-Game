@@ -15,8 +15,8 @@ Board::Board(int columnAmount, int rowAmount, Tile* head) {
     this->tail = head;
 
     snakeBody.push_back(head);
-    Tile* torso = new Tile(8, 7, "Right", 2);
-    snakeBody.push_back(torso);
+    Tile* torsoTwo = new Tile(8, 7, "Right", 2);
+    snakeBody.push_back(torsoTwo);
 }
 
 void Board::printBoard() {
@@ -54,8 +54,6 @@ void Board::updateBoard(string direction) {
             snakeBody[i]->Move(oldDirection);
             oldDirection = snakeBody[i]->getDirection();
         }
-
-
 
         x = snakeBody[i]->getPosition()[0];
         y = snakeBody[i]->getPosition()[1];

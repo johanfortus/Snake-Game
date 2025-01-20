@@ -20,4 +20,6 @@ public:
 
     void updateBoard(string direction);
     void updateSnake();
+
+    void addApple();
 };
