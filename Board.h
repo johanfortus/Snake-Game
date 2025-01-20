@@ -9,11 +9,15 @@ using namespace std;
 
 class Board {
     vector<vector<int>> boardVector;
-    vector<Tile> snakeBody;
+    vector<Tile*> snakeBody;
+
+    Tile* head;
+    Tile* tail;
 public:
-    Board(int columnAmount, int rowAmount, Tile head);
+    Board(int columnAmount, int rowAmount, Tile* head);
     void printBoard();
     vector<vector<int>> getBoardVector();
 
     void updateBoard(string direction);
+    void updateSnake();
 };

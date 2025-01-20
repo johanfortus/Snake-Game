@@ -1,9 +1,10 @@
 #include "Tile.h"
 
-Tile::Tile(int xPosition, int yPosition, std::string direction) {
+Tile::Tile(int xPosition, int yPosition, string direction, int value) {
     this->x = xPosition;
     this->y = yPosition;
     this->direction = direction;
+    this->value = value;
 }
 
 void Tile::Move(string newDirection) {
@@ -28,4 +29,8 @@ void Tile::Move(string newDirection) {
 
 vector<int> Tile::getPosition() {
     return {this->x, this->y};
+}
+
+int Tile::getValue() {
+    return this->value;
 }

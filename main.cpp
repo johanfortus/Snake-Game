@@ -24,7 +24,7 @@ int main() {
     int xPos = 8;
     int yPos = 8;
     string direction = "Right";
-    Tile Head(xPos, yPos, direction);
+    Tile* Head = new Tile(xPos, yPos, direction,1);
 
     // Initialize Board
     int columns = 17;
@@ -35,9 +35,8 @@ int main() {
 
     vector<vector<int>> boardVector = GameBoard.getBoardVector();
     GameBoard.printBoard();
-
-
     cout << endl;
+
     GameBoard.updateBoard(direction);
     GameBoard.printBoard();
     cout << endl;

@@ -1,8 +1,6 @@
 #include "Board.h"
 
-Board::Board(int columnAmount, int rowAmount, Tile head) {
-
-
+Board::Board(int columnAmount, int rowAmount, Tile* head) {
 
     for(int i = 0; i < columnAmount; i++) {
         vector<int> row;
@@ -11,7 +9,10 @@ Board::Board(int columnAmount, int rowAmount, Tile head) {
         }
         boardVector.push_back(row);
     }
+
     boardVector[8][8] = 1;
+    this->head = head;
+
     snakeBody.push_back(head);
 }
 
@@ -36,14 +37,14 @@ void Board::updateBoard(string direction) {
     string oldDirection;
     for(int i = 0; i < snakeBody.size(); i++) {
 
-        oldX = snakeBody[i].getPosition()[0];
-        oldY = snakeBody[i].getPosition()[1];
-        oldDirection = snakeBody[i].oldDirection;
-        snakeBody[i].Move(direction);
+        oldX = snakeBody[i]->getPosition()[0];
+        oldY = snakeBody[i]->getPosition()[1];
+        oldDirection = snakeBody[i]->oldDirection;
+        snakeBody[i]->Move(direction);
 
-        x = snakeBody[i].getPosition()[0];
-        y = snakeBody[i].getPosition()[1];
-        boardVector[x][y] = i + 1;
+        x = snakeBody[i]->getPosition()[0];
+        y = snakeBody[i]->getPosition()[1];
+        boardVector[x][y] = snakeBody[i]->getValue();
         cout << "OLD POSITIONS: (" << x << ", " << y << ")" << endl;
         cout << "NEW POSITIONS: (" << oldX << ", " << oldY << ")" << endl;
 
@@ -51,3 +52,8 @@ void Board::updateBoard(string direction) {
             boardVector[oldX][oldY] = 0;
     }
 }
+
+void Board::updateSnake() {
+
+}
+
