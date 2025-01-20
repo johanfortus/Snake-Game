@@ -42,6 +42,9 @@ int main() {
     cout << endl;
     GameBoard.updateBoard(direction);
     GameBoard.printBoard();
+    cout << endl;
+    GameBoard.updateBoard("Up");
+    GameBoard.printBoard();
 
 
     cout << xPos << "," << yPos << endl;

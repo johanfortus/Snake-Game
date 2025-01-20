@@ -15,7 +15,7 @@ Board::Board(int columnAmount, int rowAmount, Tile* head) {
     this->tail = head;
 
     snakeBody.push_back(head);
-    Tile* torso = new Tile(head->getPosition()[0], head->getPosition()[1] - 1, "Right", 2);
+    Tile* torso = new Tile(8, 7, "Right", 2);
     snakeBody.push_back(torso);
 }
 
@@ -47,7 +47,11 @@ void Board::updateBoard(string direction) {
         oldDirection = snakeBody[i]->getDirection();
 
         // Update Snake Position
-        snakeBody[i]->Move(direction);
+        if(i == 0)
+            snakeBody[i]->Move(direction);
+        else
+            snakeBody[i]->Move(oldDirection);
+
         x = snakeBody[i]->getPosition()[0];
         y = snakeBody[i]->getPosition()[1];
 
@@ -58,8 +62,8 @@ void Board::updateBoard(string direction) {
         boardVector[x][y] = snakeBody[i]->getValue();
 
 
-        cout << "OLD POSITIONS: (" << x << ", " << y << ")" << endl;
-        cout << "NEW POSITIONS: (" << oldX << ", " << oldY << ")" << endl;
+        cout << "OLD POSITIONS: (" << oldX << ", " << oldY << ")" << endl;
+        cout << "NEW POSITIONS: (" << x << ", " << y << ")" << endl;
 
         if(i == snakeBody.size() - 1) {
 
