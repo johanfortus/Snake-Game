@@ -34,12 +34,19 @@ int main() {
     Board GameBoard(columns, rows, Head);
 
     vector<vector<int>> boardVector = GameBoard.getBoardVector();
+    GameBoard.printBoard();
+    GameBoard.updateBoard(direction);
 
-    // Initialize Snake Head Tile
-    boardVector[xPos][yPos] = 1;
-
+    cout << endl;
+    GameBoard.updateBoard(direction);
+    GameBoard.printBoard();
+    cout << endl;
+    GameBoard.updateBoard(direction);
     GameBoard.printBoard();
 
+
+    cout << xPos << "," << yPos << endl;
+    return 0;
     sf::RenderWindow window(sf::VideoMode(width, height), "Snake Game");
     sf::Clock clock;
     sf::Time interval = sf::seconds(0.1f);

@@ -11,6 +11,8 @@ Board::Board(int columnAmount, int rowAmount, Tile head) {
         }
         boardVector.push_back(row);
     }
+    boardVector[8][8] = 1;
+    snakeBody.push_back(head);
 }
 
 void Board::printBoard() {
@@ -42,6 +44,8 @@ void Board::updateBoard(string direction) {
         x = snakeBody[i].getPosition()[0];
         y = snakeBody[i].getPosition()[1];
         boardVector[x][y] = i + 1;
+        cout << "OLD POSITIONS: (" << x << ", " << y << ")" << endl;
+        cout << "NEW POSITIONS: (" << oldX << ", " << oldY << ")" << endl;
 
         if(i == snakeBody.size() - 1)
             boardVector[oldX][oldY] = 0;
