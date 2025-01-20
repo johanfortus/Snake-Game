@@ -12,7 +12,6 @@ void Tile::Move(string newDirection) {
     // Store old position for next snake tile to move to
     oldX = this->x;
     oldY = this->y;
-    oldDirection = this->direction;
 
     // Update position
     if(newDirection == "Left")
@@ -33,4 +32,8 @@ vector<int> Tile::getPosition() {
 
 int Tile::getValue() {
     return this->value;
+}
+
+string Tile::getDirection() {
+    return this->direction;
 }
