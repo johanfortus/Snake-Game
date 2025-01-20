@@ -15,5 +15,5 @@ public:
     void printBoard();
     vector<vector<int>> getBoardVector();
 
-    void updateBoard(int x, int y, string direction);
+    void updateBoard(string direction);
 };

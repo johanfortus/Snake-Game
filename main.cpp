@@ -35,10 +35,8 @@ int main() {
 
     vector<vector<int>> boardVector = GameBoard.getBoardVector();
 
-
     // Initialize Snake Head Tile
     boardVector[xPos][yPos] = 1;
-
 
     GameBoard.printBoard();
 
