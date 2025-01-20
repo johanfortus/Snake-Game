@@ -1,6 +1,6 @@
 #include "Board.h"
 
-Board::Board(int columnAmount, int rowAmount) {
+Board::Board(int columnAmount, int rowAmount, Tile head) {
 
 
 
@@ -26,4 +26,23 @@ void Board::printBoard() {
 
 vector<vector<int>> Board::getBoardVector() {
     return boardVector;
+}
+
+void Board::updateBoard(int x, int y, string direction) {
+    int oldX;
+    int oldY;
+    string oldDirection;
+    for(int i = 0; i < snakeBody.size(); i++) {
+        if(i == 0) {
+            snakeBody[i].Move(direction);
+
+            oldX = snakeBody[i].getPosition()[0];
+            oldY = snakeBody[i].getPosition()[1];
+            oldDirection = snakeBody[i].oldDirection;
+        }
+        else {
+            snakeBody[i].Move(oldDirection);
+        }
+
+    }
 }

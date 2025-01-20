@@ -20,7 +20,8 @@ add_executable(SnakeGame main.cpp
         Board.cpp
         TextureManager.cpp
         TextureManager.h
-        Tile.h)
+        Tile.h
+        Tile.cpp)
 
 # Link SFML libraries
 target_link_libraries(SnakeGame sfml-system sfml-window sfml-graphics)

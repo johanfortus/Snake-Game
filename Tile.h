@@ -7,6 +7,19 @@
 using namespace std;
 
 class Tile {
-public:
+    int x;
+    int y;
+    string direction;
 
+    int oldX;
+    int oldY;
+
+
+public:
+    Tile(int xPosition, int yPosition, string direction);
+    void Move(string newDirection);
+
+    vector<int> getPosition();
+
+    string oldDirection;
 };

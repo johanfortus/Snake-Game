@@ -20,28 +20,31 @@ using namespace std;
 
 int main() {
 
-
-    int columns = 17;
-    int rows = 17;
-
-    int width = columns * 32;
-    int height = rows * 32;
-
+    // Snake Default Position & Direction
     int xPos = 8;
     int yPos = 8;
-
     string direction = "Right";
+    Tile Head(xPos, yPos, direction);
 
-    Board GameBoard(columns, rows);
+    // Initialize Board
+    int columns = 17;
+    int rows = 17;
+    int width = columns * 32;
+    int height = rows * 32;
+    Board GameBoard(columns, rows, Head);
+
     vector<vector<int>> boardVector = GameBoard.getBoardVector();
+
+
+    // Initialize Snake Head Tile
     boardVector[xPos][yPos] = 1;
+
+
     GameBoard.printBoard();
 
     sf::RenderWindow window(sf::VideoMode(width, height), "Snake Game");
-
     sf::Clock clock;
     sf::Time interval = sf::seconds(0.1f);
-
     while (window.isOpen()) {
         sf::Event event;
 
@@ -66,12 +69,15 @@ int main() {
 
         }
 
+        // Move Snake Every 0.1 Seconds
         if(clock.getElapsedTime() >= interval) {
             if(direction == "Left") {
+
                 boardVector[xPos][yPos] = 0;
                 yPos-=1;
                 boardVector[xPos][yPos] = 1;
                 cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
+
             }
             else if(direction == "Right") {
                 boardVector[xPos][yPos] = 0;
