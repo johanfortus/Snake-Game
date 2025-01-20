@@ -35,7 +35,7 @@ int main() {
 
     vector<vector<int>> boardVector = GameBoard.getBoardVector();
     GameBoard.printBoard();
-    GameBoard.updateBoard(direction);
+
 
     cout << endl;
     GameBoard.updateBoard(direction);
