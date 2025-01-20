@@ -37,6 +37,7 @@ int main() {
     cout << endl;
 
 
+    GameBoard.addApple();
     vector<vector<int>> boardVector;
 
     cout << xPos << "," << yPos << endl;
@@ -112,6 +113,11 @@ int main() {
                     sf::Sprite snakeTileSprite(TextureManager::GetTexture("snake_tile"));
                     snakeTileSprite.setPosition(sf::Vector2f(j * 32, i * 32));
                     window.draw(snakeTileSprite);
+                }
+                if(boardVector[i][j] == -1) {
+                    sf::Sprite appleTileSprite(TextureManager::GetTexture("apple_tile"));
+                    appleTileSprite.setPosition(sf::Vector2f(j * 32, i * 32));
+                    window.draw(appleTileSprite);
                 }
             }
         }

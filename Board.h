@@ -10,6 +10,8 @@ using namespace std;
 class Board {
     vector<vector<int>> boardVector;
     vector<Tile*> snakeBody;
+    int rowAmount;
+    int colAmount;
 
     Tile* head;
     Tile* tail;

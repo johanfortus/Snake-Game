@@ -1,7 +1,9 @@
 #include "Board.h"
+#include "Random.h"
 
 Board::Board(int columnAmount, int rowAmount, Tile* head) {
-
+    this->rowAmount = rowAmount;
+    this->colAmount = columnAmount;
     for(int i = 0; i < columnAmount; i++) {
         vector<int> row;
         for(int j = 0; j < rowAmount; j++) {
@@ -81,6 +83,24 @@ void Board::updateBoard(string direction) {
 }
 
 void Board::updateSnake() {
+
+}
+
+void Board::addApple() {
+
+    int applesPlaced = 0;
+
+    while(applesPlaced == 0) {
+        int randomRow = Random::Int(0, this->rowAmount - 1);
+        int randomCol = Random::Int(0, this->colAmount - 1);
+        if(boardVector[randomRow][randomCol] != 0)
+            continue;
+        else {
+            boardVector[randomRow][randomCol] = -1;
+            applesPlaced++;
+        }
+    }
+
 
 }
 
