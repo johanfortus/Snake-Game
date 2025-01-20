@@ -33,7 +33,7 @@ int main() {
     int height = rows * 32;
     Board GameBoard(columns, rows, Head);
 
-    vector<vector<int>> boardVector = GameBoard.getBoardVector();
+
     GameBoard.printBoard();
     cout << endl;
 
@@ -45,10 +45,29 @@ int main() {
     cout << endl;
     GameBoard.updateBoard("Up");
     GameBoard.printBoard();
-
+    cout << endl;
+    GameBoard.updateBoard("Up");
+    GameBoard.printBoard();
+    cout << endl;
+    GameBoard.updateBoard("Up");
+    GameBoard.printBoard();
+    cout << endl;
+    GameBoard.updateBoard("Up");
+    GameBoard.printBoard();
+    cout << endl;
+    GameBoard.updateBoard("Up");
+    GameBoard.printBoard();
+    cout << endl;
+    GameBoard.updateBoard("Up");
+    GameBoard.printBoard();
+    cout << endl;
+    GameBoard.updateBoard("Up");
+    GameBoard.printBoard();
+    return 0;
+    vector<vector<int>> boardVector;
 
     cout << xPos << "," << yPos << endl;
-    return 0;
+
     sf::RenderWindow window(sf::VideoMode(width, height), "Snake Game");
     sf::Clock clock;
     sf::Time interval = sf::seconds(0.1f);
@@ -78,33 +97,33 @@ int main() {
 
         // Move Snake Every 0.1 Seconds
         if(clock.getElapsedTime() >= interval) {
-            if(direction == "Left") {
-
-                boardVector[xPos][yPos] = 0;
-                yPos-=1;
-                boardVector[xPos][yPos] = 1;
-                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
-
-            }
-            else if(direction == "Right") {
-                boardVector[xPos][yPos] = 0;
-                yPos+=1;
-                boardVector[xPos][yPos] = 1;
-                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
-            }
-            else if(direction == "Up") {
-                boardVector[xPos][yPos] = 0;
-                xPos-=1;
-                boardVector[xPos][yPos] = 1;
-                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
-            }
-            else if(direction == "Down") {
-                boardVector[xPos][yPos] = 0;
-                xPos+=1;
-                boardVector[xPos][yPos] = 1;
-                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
-            }
-
+//            if(direction == "Left") {
+//
+//                boardVector[xPos][yPos] = 0;
+//                yPos-=1;
+//                boardVector[xPos][yPos] = 1;
+//                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
+//
+//            }
+//            else if(direction == "Right") {
+//                boardVector[xPos][yPos] = 0;
+//                yPos+=1;
+//                boardVector[xPos][yPos] = 1;
+//                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
+//            }
+//            else if(direction == "Up") {
+//                boardVector[xPos][yPos] = 0;
+//                xPos-=1;
+//                boardVector[xPos][yPos] = 1;
+//                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
+//            }
+//            else if(direction == "Down") {
+//                boardVector[xPos][yPos] = 0;
+//                xPos+=1;
+//                boardVector[xPos][yPos] = 1;
+//                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
+//            }
+            GameBoard.updateBoard(direction);
 
             clock.restart();
         }
@@ -113,10 +132,10 @@ int main() {
         window.clear(sf::Color::Black);
 
 
-
+        boardVector = GameBoard.getBoardVector();
         for(int i = 0; i < boardVector.size(); i++) {
             for(int j = 0; j < boardVector[i].size(); j++) {
-                if(boardVector[i][j] == 1) {
+                if(boardVector[i][j] >= 1) {
                     sf::Sprite snakeTileSprite(TextureManager::GetTexture("snake_tile"));
                     snakeTileSprite.setPosition(sf::Vector2f(j * 32, i * 32));
                     window.draw(snakeTileSprite);

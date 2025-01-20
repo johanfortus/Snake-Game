@@ -44,13 +44,18 @@ void Board::updateBoard(string direction) {
         // Store Old Position
         oldX = snakeBody[i]->getPosition()[0];
         oldY = snakeBody[i]->getPosition()[1];
-        oldDirection = snakeBody[i]->getDirection();
 
         // Update Snake Position
-        if(i == 0)
+        if(i == 0) {
+            oldDirection = snakeBody[i]->getDirection();
             snakeBody[i]->Move(direction);
-        else
+        }
+        else {
             snakeBody[i]->Move(oldDirection);
+            oldDirection = snakeBody[i]->getDirection();
+        }
+
+
 
         x = snakeBody[i]->getPosition()[0];
         y = snakeBody[i]->getPosition()[1];
@@ -66,7 +71,6 @@ void Board::updateBoard(string direction) {
         cout << "NEW POSITIONS: (" << x << ", " << y << ")" << endl;
 
         if(i == snakeBody.size() - 1) {
-
             if(ateApple) {
                 this->tail = new Tile(oldX, oldY, oldDirection, i + 1);
             }
