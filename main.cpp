@@ -33,37 +33,10 @@ int main() {
     int height = rows * 32;
     Board GameBoard(columns, rows, Head);
 
-
     GameBoard.printBoard();
     cout << endl;
 
-    GameBoard.updateBoard(direction);
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard(direction);
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    return 0;
+
     vector<vector<int>> boardVector;
 
     cout << xPos << "," << yPos << endl;
