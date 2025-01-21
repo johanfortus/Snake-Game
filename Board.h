@@ -17,6 +17,7 @@ class Board {
     Tile* tail;
 public:
     vector<Tile*> snakeBody;
+    bool gameOver = false;
     Board(int columnAmount, int rowAmount, Tile* head);
     void printBoard();
     vector<vector<int>> getBoardVector();

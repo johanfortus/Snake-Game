@@ -114,7 +114,6 @@ int main() {
                     if(direction != "Up") {
                         direction = "Down";
                     }
-
                 }
             }
 
@@ -153,10 +152,7 @@ int main() {
             clock.restart();
         }
 
-
         window.clear(sf::Color::Black);
-
-
 
 
         for(int i = 0; i < boardVector.size(); i++) {

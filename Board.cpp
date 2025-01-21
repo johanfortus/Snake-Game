@@ -19,7 +19,7 @@ Board::Board(int columnAmount, int rowAmount, Tile* head) {
     snakeBody.push_back(head);
     Tile* torsoTwo = new Tile(8, 7, "Right", 2);
     snakeBody.push_back(torsoTwo);
-    boardVector[1][10] = -1;
+
 }
 
 void Board::printBoard() {
@@ -65,6 +65,9 @@ vector<vector<int>> Board::updateBoard(string direction) {
         if(boardVector[x][y] == -1) {
             ateApple = true;
         }
+        if(boardVector[x][y] > 0) {
+            gameOver = true;
+        }
 
         boardVector[x][y] = snakeBody[i]->getValue();
 
@@ -82,6 +85,7 @@ vector<vector<int>> Board::updateBoard(string direction) {
         cout << "ATE APPLE" << endl;
         this->tail = newTile;
         ateApple = false;
+        addApple();
     }
     return boardVector;
 }
