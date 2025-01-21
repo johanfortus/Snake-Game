@@ -40,54 +40,48 @@ vector<vector<int>> Board::getBoardVector() {
 vector<vector<int>> Board::updateBoard(string direction) {
     int x, y;
     int oldX, oldY;
+    int tailX, tailY;
+    string tailDirection;
     bool ateApple = false;
     string oldDirection;
+    string newDirection;
 
     for(int i = 0; i < snakeBody.size(); i++) {
+        if(i == 0) {
+            newDirection = direction;
+        }
 
-        // Store Old Position
         oldX = snakeBody[i]->getX();
         oldY = snakeBody[i]->getY();
+        tailDirection = snakeBody[i]->getDirection();
 
-        // Update Snake Position
-        if(i == 0) {
-            oldDirection = snakeBody[i]->getDirection();
-            snakeBody[i]->Move(direction);
-        }
-        else {
-            snakeBody[i]->Move(oldDirection);
-            oldDirection = snakeBody[i]->getDirection();
-        }
-        cout << "SNAKE BODY: " << snakeBody[i]->getValue() << ", OLD POSITION: (" << oldX << ", " << oldY << "), " << "DIRECTION: " << direction << endl;
-
+        oldDirection = snakeBody[i]->getDirection();
+        snakeBody[i]->Move(newDirection);
+        newDirection = oldDirection;
 
         x = snakeBody[i]->getX();
         y = snakeBody[i]->getY();
 
-
-        // Update ateApple to true if next head position is an apple
-        if(i == 0 && boardVector[x][y] == -1)
+        if(boardVector[x][y] == -1) {
             ateApple = true;
+        }
 
         boardVector[x][y] = snakeBody[i]->getValue();
-        cout << "SNAKE BODY: " << snakeBody[i]->getValue() << ", NEW POSITION: (" << x << ", " << y << "), " << "DIRECTION: " << direction << endl;
-        cout <<  endl;
-//        cout << "OLD POSITIONS: (" << oldX << ", " << oldY << ")" << endl;
-//        cout << "NEW POSITIONS: (" << x << ", " << y << ")" << endl;
 
         if(i == snakeBody.size() - 1) {
             boardVector[oldX][oldY] = 0;
         }
     }
 
-    if(ateApple == true) {
-        Tile* newTile = new Tile(oldX, oldY, oldDirection, snakeBody.size() + 1);
+    if(ateApple) {
+        Tile* newTile = new Tile(oldX, oldY, tailDirection, snakeBody.size() + 1);
         snakeBody.push_back(newTile);
         boardVector[oldX][oldY] = newTile->getValue();
+        cout << "TAIL X: " << tailX << endl;
+        cout << "TAIL Y: " << tailY << endl;
         cout << "ATE APPLE" << endl;
         this->tail = newTile;
         ateApple = false;
-        cout << "i: " << snakeBody.size() << " old x: " << oldX << " old y: " << oldY << endl;
     }
     return boardVector;
 }
