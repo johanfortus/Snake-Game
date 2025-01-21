@@ -86,10 +86,6 @@ vector<vector<int>> Board::updateBoard(string direction) {
     return boardVector;
 }
 
-void Board::updateSnake() {
-
-}
-
 void Board::addApple() {
 
     int applesPlaced = 0;

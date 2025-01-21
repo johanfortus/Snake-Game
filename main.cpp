@@ -96,16 +96,25 @@ int main() {
 
             if(event.type == sf::Event::KeyPressed) {
                 if(event.key.code == sf::Keyboard::Left) {
-                    direction = "Left";
+                    if(direction != "Right") {
+                        direction = "Left";
+                    }
                 }
                 if(event.key.code == sf::Keyboard::Right) {
-                    direction = "Right";
+                    if(direction != "Left") {
+                        direction = "Right";
+                    }
                 }
                 if(event.key.code == sf::Keyboard::Up) {
-                    direction = "Up";
+                    if(direction != "Down") {
+                        direction = "Up";
+                    }
                 }
                 if(event.key.code == sf::Keyboard::Down) {
-                    direction = "Down";
+                    if(direction != "Up") {
+                        direction = "Down";
+                    }
+
                 }
             }
 
