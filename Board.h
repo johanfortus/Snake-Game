@@ -9,21 +9,21 @@ using namespace std;
 
 class Board {
     vector<vector<int>> boardVector;
-
+    vector<Tile*> snakeBody;
     int rowAmount;
     int colAmount;
-
-    Tile* head;
-    Tile* tail;
 public:
-    vector<Tile*> snakeBody;
-    bool gameOver = false;
-    Board(int columnAmount, int rowAmount, Tile* head);
-    void printBoard();
-    vector<vector<int>> getBoardVector();
 
+    bool gameOver = false;
+
+    Board(int columnAmount, int rowAmount, Tile* head);
+
+    vector<vector<int>> getBoardVector();
     vector<vector<int>> updateBoard(string direction);
+
     void updateSnake();
 
     void addApple();
+
+    void printBoard();
 };

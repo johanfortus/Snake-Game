@@ -63,7 +63,7 @@ int main() {
         }
 
         // Move Snake Every 0.1 Seconds
-        if(clock.getElapsedTime() >= interval) {
+        if(clock.getElapsedTime() >= interval && !GameBoard.gameOver) {
             boardVector = GameBoard.updateBoard(direction);
             clock.restart();
         }
@@ -84,6 +84,12 @@ int main() {
                 }
             }
         }
+
+        if(GameBoard.gameOver) {
+            sf::Sprite gameOver(TextureManager::GetTexture("gameover_sprite"));
+            window.draw(gameOver);
+        }
+
         window.display();
     }
     return 0;

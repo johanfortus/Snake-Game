@@ -26,10 +26,6 @@ void Tile::Move(string newDirection) {
     this->direction = newDirection;
 }
 
-//vector<int> Tile::getPosition() {
-//    return {this->x, this->y};
-//}
-
 int Tile::getX() {
     return x;
 }
