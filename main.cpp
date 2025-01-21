@@ -35,48 +35,48 @@ int main() {
 
     GameBoard.printBoard();
 
-    cout << endl;
-    GameBoard.updateBoard(direction);
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard(direction);
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Up");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Left");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Down");
-    GameBoard.printBoard();
-    cout << endl;
-    GameBoard.updateBoard("Left");
-    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard(direction);
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard(direction);
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Left");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Down");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Left");
+//    GameBoard.printBoard();
 
 
-    return 0;
+
 
 
     GameBoard.addApple();
