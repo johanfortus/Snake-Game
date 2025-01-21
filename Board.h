@@ -20,7 +20,7 @@ public:
     void printBoard();
     vector<vector<int>> getBoardVector();
 
-    void updateBoard(string direction);
+    vector<vector<int>> updateBoard(string direction);
     void updateSnake();
 
     void addApple();

@@ -21,7 +21,10 @@ public:
     void Move(string newDirection);
 
     vector<int> getPosition();
+
     string getDirection();
+    int getX();
+    int getY();
 
     int getValue();
 };

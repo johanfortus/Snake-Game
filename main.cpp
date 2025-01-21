@@ -34,7 +34,40 @@ int main() {
     Board GameBoard(columns, rows, Head);
 
     GameBoard.printBoard();
+
     cout << endl;
+//    GameBoard.updateBoard(direction);
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard(direction);
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Up");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Left");
+//    GameBoard.printBoard();
+//    cout << endl;
+//    GameBoard.updateBoard("Down");
+//    GameBoard.printBoard();
 
 
     GameBoard.addApple();
@@ -97,7 +130,7 @@ int main() {
 //                boardVector[xPos][yPos] = 1;
 //                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
 //            }
-            GameBoard.updateBoard(direction);
+            boardVector = GameBoard.updateBoard(direction);
 
             clock.restart();
         }
@@ -106,7 +139,8 @@ int main() {
         window.clear(sf::Color::Black);
 
 
-        boardVector = GameBoard.getBoardVector();
+
+
         for(int i = 0; i < boardVector.size(); i++) {
             for(int j = 0; j < boardVector[i].size(); j++) {
                 if(boardVector[i][j] >= 1) {
