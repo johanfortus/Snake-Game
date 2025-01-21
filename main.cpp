@@ -10,14 +10,6 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 
-//template<typename T>
-//auto setInterval(T function, int interval) {
-//    while(true) {
-//        function();
-//        this_thread::sleep_for(chrono::milliseconds(interval));
-//    }
-//}
-
 int main() {
 
     // Snake Default Position & Direction
@@ -34,66 +26,17 @@ int main() {
     Board GameBoard(columns, rows, Head);
 
     GameBoard.printBoard();
-
-//    cout << endl;
-//    GameBoard.updateBoard(direction);
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard(direction);
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Up");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Up");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Up");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Up");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Up");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Up");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Up");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Up");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Left");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Down");
-//    GameBoard.printBoard();
-//    cout << endl;
-//    GameBoard.updateBoard("Left");
-//    GameBoard.printBoard();
-
-
-
-
-
     GameBoard.addApple();
     vector<vector<int>> boardVector;
-
-    cout << xPos << "," << yPos << endl;
 
     sf::RenderWindow window(sf::VideoMode(width, height), "Snake Game");
     sf::Clock clock;
     sf::Time interval = sf::seconds(0.1f);
     while (window.isOpen()) {
         sf::Event event;
-
         while (window.pollEvent(event)) {
             if(event.type == sf::Event::Closed)
                 window.close();
-
             if(event.type == sf::Event::KeyPressed) {
                 if(event.key.code == sf::Keyboard::Left) {
                     if(direction != "Right") {
@@ -121,39 +64,11 @@ int main() {
 
         // Move Snake Every 0.1 Seconds
         if(clock.getElapsedTime() >= interval) {
-//            if(direction == "Left") {
-//
-//                boardVector[xPos][yPos] = 0;
-//                yPos-=1;
-//                boardVector[xPos][yPos] = 1;
-//                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
-//
-//            }
-//            else if(direction == "Right") {
-//                boardVector[xPos][yPos] = 0;
-//                yPos+=1;
-//                boardVector[xPos][yPos] = 1;
-//                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
-//            }
-//            else if(direction == "Up") {
-//                boardVector[xPos][yPos] = 0;
-//                xPos-=1;
-//                boardVector[xPos][yPos] = 1;
-//                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
-//            }
-//            else if(direction == "Down") {
-//                boardVector[xPos][yPos] = 0;
-//                xPos+=1;
-//                boardVector[xPos][yPos] = 1;
-//                cout << "Head Position: [" << xPos << "]" << "[" << yPos << "]" << endl;
-//            }
             boardVector = GameBoard.updateBoard(direction);
-
             clock.restart();
         }
 
         window.clear(sf::Color::Black);
-
 
         for(int i = 0; i < boardVector.size(); i++) {
             for(int j = 0; j < boardVector[i].size(); j++) {
@@ -169,7 +84,6 @@ int main() {
                 }
             }
         }
-
         window.display();
     }
     return 0;

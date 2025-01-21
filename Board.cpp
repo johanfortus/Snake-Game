@@ -80,9 +80,6 @@ vector<vector<int>> Board::updateBoard(string direction) {
         Tile* newTile = new Tile(oldX, oldY, tailDirection, snakeBody.size() + 1);
         snakeBody.push_back(newTile);
         boardVector[oldX][oldY] = newTile->getValue();
-        cout << "TAIL X: " << tailX << endl;
-        cout << "TAIL Y: " << tailY << endl;
-        cout << "ATE APPLE" << endl;
         this->tail = newTile;
         ateApple = false;
         addApple();
@@ -104,7 +101,5 @@ void Board::addApple() {
             applesPlaced++;
         }
     }
-
-
 }
 
