@@ -14,3 +14,4 @@ Features include responsive controls, increasing challenge as the snake grows, a
 
 ## Demonstration
 
+<img src="https://github.com/johanfortus/Snake-Game/blob/main/SnakeGameDemo.gif" width="400px"/> 
